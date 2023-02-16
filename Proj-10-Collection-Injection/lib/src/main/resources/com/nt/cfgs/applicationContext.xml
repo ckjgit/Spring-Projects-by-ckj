@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dob" class="java.util.Date">
+		<property name="year" value="97" />
+		<property name="month" value="01" />
+		<property name="date" value="02" />
+
+	</bean>
+	<bean id="sysdate" class="java.util.Date" />
+	
+	
+	
+	
+	
+	
+
+	<!-- Array type injection -->
+
+	<bean id="mi" class="com.nt.beans.MarksInfo">
+		<property name="marks">
+			<array>
+				<value>29</value>
+				<value>377</value>
+				<value>86</value>
+				<value>88</value>
+			</array>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<!-- List Collection -->
+
+	<bean id="college" class="com.nt.beans.College">
+		<property name="studentNames">
+			<list>
+				<value>Sachin Matad Kalisah</value>
+				<value>Nadaa Chori</value>
+				<value>Radhee</value>
+			</list>
+		</property>
+		<property name="dateList">
+			<list>
+				<ref bean="dob" />
+				<ref bean="sysdate" />
+			</list>
+		</property>
+	</bean>
+
+
+
+
+
+
+
+	<!-- Set Collections -->
+	<bean id="cinfo" class="com.nt.beans.ContactsInfo">
+		<constructor-arg name="phoneNumbers">
+			<set>
+				<value>7978179628</value>
+				<value>9937706972</value>
+				<value>9668022005</value>
+			</set>
+		</constructor-arg>
+
+		<constructor-arg name="dates">
+			<set>
+				<ref bean="sysdate" />
+				<ref bean="dob" />
+			</set>
+		</constructor-arg>
+	</bean>
+
+	<bean id="uinfo" class="com.nt.beans.UniversityInfo">
+		<property name="facultyDetails">
+			<map key-type="java.lang.Integer" value-type="java.lang.String">
+				<entry>
+					<key>
+						<value>1001</value>
+					</key>
+					<value>Chikmaglore</value>
+				</entry>
+				<entry key="1002" value="Santabai" />
+				<entry key="1003" value="Abinash" />
+			</map>
+		</property>
+
+		<property name="datesInfo">
+			<map>
+				<entry key="toDay" value-ref="sysdate" />
+				<entry key="dob" value-ref="dob" />
+			</map>
+		</property>
+
+		<property name="fruitsInfo">
+			<props>
+				<prop key="Banana">Yellow</prop>
+				<prop key="Mango">RedYello</prop>
+				<prop key="Orange">Orange</prop>
+			</props>
+		</property>
+	</bean>
+
+
+</beans>

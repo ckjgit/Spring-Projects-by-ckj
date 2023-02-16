@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-merge="false" 
+
+
+
+
+ xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="cm" class="com.nt.beans.MergingBeans" abstract="true">
+		<property name="course">
+			<set>
+				<value>Sanjib</value>
+				<value>Lulu</value>
+				<value>Bandhabi</value>
+				<value>Cipun</value>
+			</set>
+		
+		</property>
+	</bean>
+	
+	<bean id="cm2" class="com.nt.beans.MergingBeans" parent="cm">
+		<property name="course">
+			<set merge="true">
+				<value>LinkedIn</value>
+				<value>MariaaDB</value>
+				<value>Statutory</value>
+			</set>
+		</property>
+	</bean>
+	
+</beans>

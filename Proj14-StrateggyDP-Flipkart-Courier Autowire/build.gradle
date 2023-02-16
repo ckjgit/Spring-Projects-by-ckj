@@ -1,0 +1,23 @@
+
+plugins {
+    // Apply the java-library plugin for API and implementation separation.
+    id 'application'
+    id 'java'
+}
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+
+run{
+	standardInput=System.in
+}
+
+
+dependencies {
+	// https://mvnrepository.com/artifact/org.springframework/spring-context-support
+	implementation group: 'org.springframework', name: 'spring-context-support', version: '5.3.23'
+}
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<!-- Configure DataSource -->
+	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.pass}" />
+	
+	</bean>
+	
+	<!-- Configure DAO -->
+	<bean id="dao" class="com.nt.dao.BBR_DAO_Impl">
+		<constructor-arg ref="ds" />
+	</bean>
+	
+	<!-- Configure Service -->
+	<bean id="service" class="com.nt.service.BBR_ServiceImpl">
+		<constructor-arg ref="dao" />
+	</bean>
+	
+	<!-- Configure Controller -->
+	<bean id="controller" class="com.nt.controller.BBR_Controller">
+		<constructor-arg ref="service" />
+	</bean>
+	
+	<bean id="ph" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="com/nt/commons/jdbc.properties"></property>
+	</bean>
+
+</beans>

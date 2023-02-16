@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- <bean id="CkjCar" class="com.nt.beans.Car">
+		<property name="regNo" value="OD01Z9040" />
+		<property name="engineNo" value="7358725334" />
+		<property name="model" value="RangeRover" />
+		<property name="company" value="LandRover" />
+		<property name="type" value="hatchback" />
+		<property name="engineCC" value="50000" />
+		<property name="color" value="black" />
+		<property name="owner" value="Chinmay" />
+		<property name="fuelType" value="petrol" />
+		<property name="insuredCompany" value="HDFC" />
+	</bean> 
+	
+	<bean id="CkjCar01" class="com.nt.beans.Car" parent="CkjCar">
+		<property name="regNo" value="OD01Z9041" />
+		<property name="engineNo" value="7358725389" />
+		<property name="color" value="red" />
+		
+	</bean> -->
+
+	<bean id="CkjCar" class="com.nt.beans.Car" abstract="true">
+		
+		<property name="model" value="RangeRover" />
+		<property name="company" value="LandRover" />
+		<property name="type" value="hatchback" />
+		<property name="engineCC" value="50000" />
+		<property name="owner" value="Chinmay" />
+		<property name="fuelType" value="petrol" />
+		<property name="insuredCompany" value="HDFC" />
+	</bean> 
+	<bean id="CkjCar01" class="com.nt.beans.Car" parent="CkjCar">
+		<property name="regNo" value="OD01Z9041" />
+		<property name="engineNo" value="7358725389" />
+		<property name="color" value="red" />
+	</bean>
+	
+	<bean id="CkjCar02" class="com.nt.beans.Car" parent="CkjCar">
+		<property name="regNo" value="OD01Z9040" />
+		<property name="engineNo" value="7358725334" />
+		<property name="color" value="black" />
+	</bean>
+	
+	<!-- The above all can be work with Constructor injection also.. -->
+	
+</beans>
